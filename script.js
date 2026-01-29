@@ -23,22 +23,21 @@ async function loadMessages() {
 async function loadGalleryImages() {
     try {
         const detectedImages = [];
-        const extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-        let consecutiveMissing = 0;
-        const maxConsecutiveMissing = 2; // Stop after 2 consecutive missing numbers
+        const extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
         
-        // Check for numbered photos starting from 1
-        for (let i = 1; i <= 50; i++) {
+        // Check for numbered images starting from 1
+        for (let i = 1; i <= 100; i++) {
             let foundImage = false;
             
+            // Try each extension for this number
             for (const ext of extensions) {
-                const imagePath = `img/photo${i}.${ext}`;
+                const imagePath = `img/${i}.${ext}`;
                 try {
                     const response = await fetch(imagePath, { method: 'HEAD' });
                     if (response.ok) {
                         detectedImages.push(imagePath);
                         foundImage = true;
-                        consecutiveMissing = 0; // Reset counter
+                        console.log(`✅ Found: ${imagePath}`);
                         break; // Found this number, move to next
                     }
                 } catch (e) {
@@ -46,33 +45,29 @@ async function loadGalleryImages() {
                 }
             }
             
+            // If we didn't find this number, stop searching
             if (!foundImage) {
-                consecutiveMissing++;
-                // If we haven't found any images yet and photo1 is missing, stop
-                if (i === 1 && consecutiveMissing === 1) {
-                    break;
-                }
-                // If we've missed several consecutive numbers, assume we're done
-                if (consecutiveMissing >= maxConsecutiveMissing) {
-                    break;
-                }
+                console.log(`⏹️ Stopped at ${i} (not found)`);
+                break;
             }
         }
         
         if (detectedImages.length > 0) {
             galleryImages = detectedImages;
             console.log(`✅ Gallery loaded: ${detectedImages.length} image(s) found`);
+            console.log('Images:', detectedImages);
         } else {
             // Fallback to default if no images detected
-            galleryImages = ['img/photo1.jpg'];
-            console.log('⚠️ No images detected, using default photo1.jpg');
+            galleryImages = ['img/1.png'];
+            console.log('⚠️ No images detected, using default img/1.png');
         }
     } catch (error) {
         console.error('Error loading gallery images:', error);
         // Fallback to default
-        galleryImages = ['img/photo1.jpg'];
+        galleryImages = ['img/1.png'];
     }
 }
+
 
 // Initialize
 document.addEventListener("DOMContentLoaded", async () => {

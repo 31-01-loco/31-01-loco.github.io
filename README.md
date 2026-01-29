@@ -27,14 +27,14 @@ The gallery **automatically detects** images in the `img/` folder!
 
 Simply add your images with numbered filenames:
 
-- `img/photo1.jpg` (always shown first)
-- `img/photo2.jpg`
-- `img/photo3.png`
+- `img/1.png` (always shown first)
+- `img/2.png`
+- `img/3.jpg`
 - etc.
 
-**Supported formats**: jpg, jpeg, png, gif, webp
+**Supported formats**: png, jpg, jpeg, gif, webp
 
-The gallery will automatically find and display all numbered photos in order. No need to edit any code!
+The gallery will automatically find and display all numbered images in order. No need to edit any code!
 
 ## Customizing Messages
 
