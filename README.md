@@ -23,8 +23,18 @@ There are secret commands hidden in the terminal. Try to find them! 😉
 
 ## Adding Images to Gallery
 
-1. Add your images to the `img/` folder
-2. Update the `galleryImages` array in `script.js` with your image filenames
+The gallery **automatically detects** images in the `img/` folder!
+
+Simply add your images with numbered filenames:
+
+- `img/photo1.jpg` (always shown first)
+- `img/photo2.jpg`
+- `img/photo3.png`
+- etc.
+
+**Supported formats**: jpg, jpeg, png, gif, webp
+
+The gallery will automatically find and display all numbered photos in order. No need to edit any code!
 
 ## Customizing Messages
 
