@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Feliz Cumpleaños Alex! 🎂</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="terminal-container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="btn-close"></span>
+          <span class="btn-minimize"></span>
+          <span class="btn-maximize"></span>
+        </div>
+        <div class="terminal-title">alex@birthday:~</div>
+      </div>
+      <div class="terminal-body">
+        <div id="output" class="terminal-output">
+          <div class="welcome-message">
+            <pre class="ascii-art">
+ ____  _      _                      _     _       
+| __ )(_) ___| |____   _____ _ __   (_) __| | ___  
+|  _ \| |/ _ \ '_ \ \ / / _ \ '_ \  | |/ _` |/ _ \ 
+| |_) | |  __/ | | \ V /  __/ | | | | | (_| | (_) |
+|____/|_|\___|_| |_|\_/ \___|_| |_| |_|\__,_|\___/ 
+                                                    
+    _    _           _ 
+   / \  | | _____  _| |
+  / _ \ | |/ _ \ \/ / |
+ / ___ \| |  __/>  <|_|
+/_/   \_\_|\___/_/\_(_)
+                    </pre
+            >
+            <p class="welcome-text">
+              ¡Bienvenido a tu terminal de cumpleaños! 🎉
+            </p>
+            <p class="welcome-text">
+              Escribe <span class="command-highlight">help</span> para ver los
+              comandos disponibles.
+            </p>
+          </div>
+        </div>
+        <div class="input-line">
+          <span class="prompt">guest@birthday:~$</span>
+          <input
+            type="text"
+            id="commandInput"
+            class="command-input"
+            autofocus
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="gallery-container">
+          <button class="gallery-nav prev" id="prevBtn">&#10094;</button>
+          <img id="galleryImage" src="" alt="Gallery Image" />
+          <button class="gallery-nav next" id="nextBtn">&#10095;</button>
+        </div>
+        <div class="gallery-info">
+          <span id="imageCounter"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
