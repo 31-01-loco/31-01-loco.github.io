@@ -118,7 +118,7 @@ function executeCommand(command) {
   // Echo command
   const commandEcho = document.createElement("div");
   commandEcho.className = "command-echo";
-  commandEcho.textContent = `guest@birthday:~$ ${command}`;
+  commandEcho.textContent = `alexl0co@birthday:~$ ${command}`;
   output.appendChild(commandEcho);
 
   // Parse command
@@ -154,7 +154,7 @@ function executeCommand(command) {
       listCommands();
       break;
     case "whoami":
-      printOutput("guest", "success");
+      printOutput("alexl0co", "success");
       break;
     case "date":
       printOutput(new Date().toLocaleString("es-ES"), "success");
@@ -225,13 +225,13 @@ function listCommands() {
 function showAbout() {
   const aboutText = `
 ╔════════════════════════════════════════════════════════╗
-║     Terminal de Cumpleaños - Versión 1.0              ║
-║     Creado especialmente para Alex 🎂                  ║
+║     Terminal de Cumpleaños - Versión 1.0               ║
+║     Creado especialmente para Alex                     ║
 ║                                                        ║
 ║     Un terminal bash interactivo para celebrar         ║
 ║     tu día especial de una forma única y geek.         ║
 ║                                                        ║
-║     ¡Feliz Cumpleaños! 🎉🎈🎊                          ║
+║     ¡Feliz Cumpleaños! 🎉🎈🎊                           ║
 ╚════════════════════════════════════════════════════════╝
     `;
   printOutput(aboutText, "success");
@@ -300,9 +300,15 @@ document.getElementById("nextBtn").addEventListener("click", nextImage);
 document.getElementById("prevBtn").addEventListener("click", prevImage);
 document.querySelector(".close-modal").addEventListener("click", closeGallery);
 
-// Close modal when clicking outside
+// Close modal when clicking outside the image
 document.getElementById("galleryModal").addEventListener("click", (e) => {
-  if (e.target.id === "galleryModal") {
+  // Close if clicking on the modal background, modal-content, or gallery-container
+  // but NOT on the image itself or the navigation buttons
+  if (
+    e.target.id === "galleryModal" ||
+    e.target.classList.contains("modal-content") ||
+    e.target.classList.contains("gallery-container")
+  ) {
     closeGallery();
   }
 });
