@@ -164,6 +164,10 @@ function executeCommand(command) {
     case "hidden":
       showMessage("secret_message");
       break;
+    case "gift":
+    case "regalo":
+      showGift();
+      break;
     case "":
       break;
     default:
@@ -189,6 +193,7 @@ Comandos disponibles:
   <span class="command-highlight">ls</span>         Lista los mensajes disponibles
   <span class="command-highlight">whoami</span>     Muestra el usuario actual
   <span class="command-highlight">date</span>       Muestra la fecha y hora actual
+  <span class="command-highlight">gift</span>       Muestra el regalo de cumpleaños
 
 Ejemplos:
   msg jordi
@@ -235,6 +240,52 @@ function showAbout() {
 ╚════════════════════════════════════════════════════════╝
     `;
   printOutput(aboutText, "success");
+}
+
+// Show Gift
+function showGift() {
+  const giftText = `
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="color: #f72585; text-shadow: 0 0 10px #f72585;">🎁 ¡FELIZ CUMPLEAÑOS! 🎁</h2>
+      <p>Aquí tienes tu regalo, aunque llegue un poquito tarde 😉</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px;">
+      <img src="img/gift_pi_top.jpg" alt="Raspberry Pi 5 Top" style="max-width: 300px; border: 2px solid #4cc9f0; border-radius: 10px;">
+      <img src="img/gift_pi_iso.png" alt="Raspberry Pi 5 Iso" style="max-width: 300px; border: 2px solid #4cc9f0; border-radius: 10px;">
+    </div>
+
+    <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px; border: 1px solid #7209b7;">
+      <h3 style="color: #4cc9f0; border-bottom: 1px solid #4cc9f0; padding-bottom: 5px;">Raspberry Pi 5 - 4GB</h3>
+      <table style="width: 100%; border-collapse: collapse; color: #fff;">
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">Marca</td>
+          <td style="padding: 5px;">Raspberry Pi</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">Modelo</td>
+          <td style="padding: 5px;">Pi 5 4GB</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">RAM</td>
+          <td style="padding: 5px;">4 GB</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">CPU</td>
+          <td style="padding: 5px;">Cortex A7 (2.4 GHz)</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">Conectividad</td>
+          <td style="padding: 5px;">Bluetooth, Ethernet, USB, Wi-Fi</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px; color: #b5179e;">OS</td>
+          <td style="padding: 5px;">Linux</td>
+        </tr>
+      </table>
+    </div>
+  `;
+  printOutput(giftText, "success");
 }
 
 // Clear terminal
